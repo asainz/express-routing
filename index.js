@@ -10,7 +10,7 @@ app.get(/^(.*)$/, function(req, res){
     var uri = req.params[0];
     
     if( uri === '/' ){
-        res.send( read('dist/pages/index.html') );
+        res.send( read('pages/index.html') );
         return;
     }
 
@@ -18,11 +18,11 @@ app.get(/^(.*)$/, function(req, res){
     uri = uri.charAt(0) === '/' ? uri.replace('/','') : uri;
 
     if( fs.existsSync(uri) ){
-        res.send( read('dist/'+uri) );
+        res.send( read(uri) );
         return;
     }
 
-    res.send( read('dist/pages/404.html') );
+    res.send( read('pages/404.html') );
 });
 
 app.listen(process.env.PORT || 3000);
