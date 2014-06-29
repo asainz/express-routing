@@ -5,7 +5,7 @@ var app = express();
 var read = function(filename){
     return fs.readFileSync(filename, 'utf-8');
 };
-
+console.log('aaaa');
 app.get(/^(.*)$/, function(req, res){
     var uri = req.params[0];
     
